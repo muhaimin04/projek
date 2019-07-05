@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	
 	<!-- Font -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+	<link href="{{ asset ('assets/backend/https://fonts.googleapis.com/css?family=Poppins:400,700') }}" rel="stylesheet">
 	
 	<!-- Stylesheets -->
 	
