@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Siswa;
-class SiswaController extends Controller
+use App\Sekolah;
+class SekolahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,10 @@ class SiswaController extends Controller
      */
     public function index()
     {
-       
-        $siswa = Siswa::all();
+        $sekolah = Sekolah::all();
         $response = [
             'success' => true,
-            'data' => $siswa,
+            'data' => $sekolah,
             'massage' => 'berhasil'
         ];
         return response()->json($response,200);
@@ -41,16 +40,16 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $siswa = new Siswa;
-        $siswa->nama = $request->nama;
-        $siswa->umur = $request->umur;
-        $siswa->cita_cita = $request->cita_cita;
-        $siswa->hobby = $request->hobby;
-        $siswa->guru = $request->guru;
-        $siswa->save();
+        $sekolah = new Sekolah;
+        $sekolah->nama = $request->nama;
+        $sekolah->umur = $request->umur;
+        $sekolah->ttl = $request->ttl;
+        $sekolah->alamat = $request->alamat;
+        $sekolah->jabatan = $request->jabatan;
+        $sekolah->save();
         $response = [
             'success' => true,
-            'data' => $siswa,
+            'data' => $sekolah,
             'massage' => 'berhasil'
         ];
         return response()->json($response, 200);
@@ -64,10 +63,10 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        $siswa = Siswa::findOrFail($id);
+        $sekolah = Sekolah::findOrFail($id);
         $response = [
             'success' => true,
-            'data' => $siswa,
+            'data' => $sekolah,
             'massage' => 'Berhasil'
         ];
         return response()->json($response, 200);
@@ -93,16 +92,16 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $siswa = Siswa::findOrFail($id) ;
-        $siswa->nama = $request->nama;
-        $siswa->umur = $request->umur;
-        $siswa->cita_cita = $request->cita_cita;
-        $siswa->hobby = $request->hobby;
-        $siswa->guru = $request->guru;
-        $siswa->save();
+        $sekolah = Sekolah::findOrFail($id) ;
+        $sekolah->nama = $request->nama;
+        $sekolah->umur = $request->umur;
+        $sekolah->ttl = $request->ttl;
+        $sekolah->alamat = $request->alamat;
+        $sekolah->hobby = $request->hobby;
+        $sekolah->save();
         $response = [
             'success' => true,
-            'data' => $siswa,
+            'data' => $sekolah,
             'massage' => 'berhasil'
         ];
         return response()->json($response, 200);
@@ -116,10 +115,10 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        $siswa = Siswa::findOrFail($id)->delete();
+        $sekolah = Sekolah::findOrFail($id)->delete();
         $response = [
             'success' => true,
-            'data' => $siswa,
+            'data' => $sekolah,
             'massage' => 'berhasil'
         ];
         return response()->json($response, 200);
