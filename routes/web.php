@@ -27,3 +27,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index', function () {
     return view('layouts.index');
 });
+
+Route::get('/kategori', function () {
+    return view('layouts.kategori');
+});
+
+Route::get('/regular', function () {
+    return view('layouts.regular');
+});
+
+Route::get('/contact', function () {
+    return view('layouts.contact');
+});
+
+Route::get('/single_blog', function () {
+    return view('layouts.single_blog');
+});
