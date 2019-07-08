@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -43,3 +43,14 @@ Route::get('/contact', function () {
 Route::get('/single_blog', function () {
     return view('layouts.single_blog');
 });
+// Route Backend
+Route::group(['prefix'=>'admin','middleware'=>['auth']],
+function () {
+    Route::get('/admin', function () {
+        return view('backend.index');
+    });
+    route::resource('kategori','KategoriController');
+    route::resource('tag','TagController');
+    route::resource('artikel','ArtikelController');
+}
+);

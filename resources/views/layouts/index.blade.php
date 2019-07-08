@@ -2847,6 +2847,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{{ asset ('assets/frontend/js/plugins.js') }}"></script>
     <!-- Active js -->
     <script src="{{ asset ('assets/frontend/js/active.js') }}"></script>
+    <script src="{{ asset ('assets/frontend/js/json.js') }}"></script>
 
 </body>
 
