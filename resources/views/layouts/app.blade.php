@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     
-    <title><h6>{{ config('app.artikel', 'Laravel') }}</h6></title>
+    <title><h6>{{ config('app.artikel', 'Artikel') }}</h6></title>
     
 
     <!-- Scripts -->

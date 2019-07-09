@@ -39,6 +39,7 @@ class TagController extends Controller
     {
         $request->validate([
             'nama_tag' => 'required|unique:tags'
+    
         ]);
         $tag = new Tag();
         $tag->nama_tag = $request->nama_tag;

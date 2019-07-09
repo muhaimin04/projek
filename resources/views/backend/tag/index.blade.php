@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.app')
 
 @section('css')
         <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
