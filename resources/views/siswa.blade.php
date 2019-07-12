@@ -1,45 +1,56 @@
 @extends('layouts.app')
-
-@section('css')
-        <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
-@endsection
-
-@section('js')
-        <script src="{{asset('assets/backend/assets/vendor/datatables.net/js/jquery.dataTables.js')}}"></script>
-        <script src="{{asset('assets/backend/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js')}}"></script>
-        <script src="{{asset('assets/backend/assets/js/components/datatables-init.js')}}"></script>
-@endsection
-
 @section('content')
-<section class="page-content container-fluid">
-    <div class="row">
-        <div class="col-12">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
             <div class="card">
-                <h5 class="card-header">Data Siswa</h5><br>
-                <center>
-                        <a href="{{ route('siswa.create') }}"
-                            class="la la-cloud-upload btn btn-info btn-rounded btn-floating btn-outline">&nbsp;Tambah Data
-                        </a>
-                </center>
+                <div class="card-header">Dashboard</div>
+
                 <div class="card-body">
-                    <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
+
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Nama</label>
+                            <input type="text" name="nama" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Umur</label>
+                            <input type="text" name="umur" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Cita-cita</label>
+                            <input type="text" name="cita_cita" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Hobby</label>
+                            <input type="text" name="hobby" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Guru</label>
+                            <input type="text" name="guru" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Simpan</button>
+                        </div>
+                    </form>
+
+                    <div class="table-responsive">
+                        <table id="datatable" class="table">
                             <tr>
                                 <th>Nama</th>
                                 <th>Umur</th>
                                 <th>Cita-cita</th>
                                 <th>Hobby</th>
                                 <th>Guru</th>
-                                <th style="text-align: center;">Aksi</th>
                             </tr>
-                        </thead>
-                        <tbody class="data-siswa"> </tbody>
-                    </table>
-
+                            <tbody class="data-siswa"></tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 @endsection

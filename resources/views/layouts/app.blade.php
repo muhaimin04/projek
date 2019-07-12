@@ -82,5 +82,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset ('assets/frontend/js/jquery/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset ('assets/frontend/js/siswa.js') }}"></script>
 </body>
 </html>

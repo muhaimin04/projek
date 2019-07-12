@@ -189,6 +189,6 @@ class ArtikelController extends Controller
                          . $blog ->judul."</b>"
         ]);
         return redirect()->route('artikel.index');
-    
     }
 }
+

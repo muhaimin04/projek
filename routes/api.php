@@ -17,9 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::resource ('tag','TagController');
 Route::resource ('sekolah','SekolahController');
 
 Route::group (['middleware' => 'cors'], function () {
     Route::resource ('siswa','SiswaController');
+    Route::resource ('tag','TagController');
+    Route::resource ('kategori','KategoriController');
+    Route::resource ('artikel','ArtikelController');
 });

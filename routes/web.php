@@ -48,9 +48,17 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],
 function () {
     Route::get('/admin', function () {
         return view('backend.index');
+
     });
-    route::resource('kategori','KategoriController');
-    route::resource('tag','TagController');
-    route::resource('artikel','ArtikelController');
+      Route::resource ('artikel','ArtikelController');
 }
 );
+
+Route::get('/siswa', function () {
+    return view('siswa');
+});
+
+Route::get('/tag', function () {
+    return view('tag');
+});
+

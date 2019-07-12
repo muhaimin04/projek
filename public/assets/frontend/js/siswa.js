@@ -1,10 +1,10 @@
-$(function () {
+$(document).ready(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    var alamat = 'api/siswa'
+    var alamat = '/api/siswa'
 
     // Get Data Siswa
     $.ajax({
@@ -17,32 +17,41 @@ $(function () {
                 $(".data-siswa").append(
                     `
                     <tr>
-                    
-                    <tr>${value.nama}</tr>
-                    <tr>${value.umur}</tr>
-                    <tr>${value.cita_cita}</tr>
-                    <tr>${value.hobby}</tr>
-                    <tr>${value.guru}</tr>
-                    <td> <button class="btn btn-danger btn-sm hapus-data" data-id="${value.id}">Hapus</button></td>
-                    
+                        <td>${value.nama}</td>
+                        <td>${value.umur}</td>
+                        <td>${value.cita_cita}</td>
+                        <td>${value.hobby}</td>
+                        <td>${value.guru}</td>
                     </tr>
                     `
                 )
             })
+        },
+        error: function () {
+            console.log('data tidak ada !');
         }
-    })
+    });
 
+    // Post Data siswa
     // Simpan Data
-    $(".tombol-simpan").click(function (simpan) {
+    $(".simpan-data").click(function (simpan) {
         simpan.preventDefault();
-        var variable_isian_nama = $("input[name=namasiswa]").val()
-        // console.log(nama)
+        var nama = $("input[name=nama]").val();
+        var umur = $("input[name=umur]").val();
+        var cita_cita = $("input[name=cita_cita]").val();
+        var hobby = $("input[name=hobby]").val();
+        var guru = $("input[name=guru]").val();
+        console.log(nama)
         $.ajax({
             url: alamat,
             method: "POST",
             dataType: "json",
             data: {
-                namasiswa: variable_isian_nama
+                nama: nama,
+                umur: umur,
+                cita_cita: cita_cita,
+                hobby: hobby,
+                guru: guru,
             },
             success: function (berhasil) {
                 alert(berhasil.message)
@@ -52,26 +61,7 @@ $(function () {
                 console.log(gagal)
             }
         })
-    })
+    });
 
-    // Hapus Data
-    $(".data-siswa").on('click', '.hapus-data', function () {
-        var id = $(this).data("id");
-        // alert(id)
-        $.ajax({
-            url: alamat + "/" + id,
-            method: "DELETE",
-            dataType: "json",
-            data: {
-                id: id
-            },
-            success: function (berhasil) {
-                alert(berhasil.message)
-                location.reload();
-            },
-            error: function (gagal) {
-                console.log(gagal)
-            }
-        })
-    })
+
 })

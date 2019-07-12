@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Siswa;
+use App\siswa;
 class SiswaController extends Controller
 {
     /**
@@ -11,10 +11,11 @@ class SiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
        
-        $siswa = Siswa::all();
+        $siswa = siswa::all();
         $response = [
             'success' => true,
             'data' => $siswa,
@@ -41,7 +42,7 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $siswa = new Siswa;
+        $siswa = new siswa;
         $siswa->nama = $request->nama;
         $siswa->umur = $request->umur;
         $siswa->cita_cita = $request->cita_cita;
@@ -64,7 +65,7 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        $siswa = Siswa::findOrFail($id);
+        $siswa = siswa::findOrFail($id);
         $response = [
             'success' => true,
             'data' => $siswa,
@@ -84,7 +85,7 @@ class SiswaController extends Controller
         //
     }
 
-    /**
+    /*s
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -93,7 +94,7 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $siswa = Siswa::findOrFail($id) ;
+        $siswa = siswa::findOrFail($id) ;
         $siswa->nama = $request->nama;
         $siswa->umur = $request->umur;
         $siswa->cita_cita = $request->cita_cita;
@@ -116,7 +117,7 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        $siswa = Siswa::findOrFail($id)->delete();
+        $siswa = siswa::findOrFail($id)->delete();
         $response = [
             'success' => true,
             'data' => $siswa,
