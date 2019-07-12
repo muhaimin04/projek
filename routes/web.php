@@ -51,14 +51,12 @@ function () {
 
     });
       Route::resource ('artikel','ArtikelController');
+      Route::resource ('tag','TagController');
+      Route::resource ('kategori','KategoriController');
 }
 );
 
 Route::get('/siswa', function () {
     return view('siswa');
-});
-
-Route::get('/tag', function () {
-    return view('tag');
 });
 

@@ -22,7 +22,7 @@ Route::resource ('sekolah','SekolahController');
 
 Route::group (['middleware' => 'cors'], function () {
     Route::resource ('siswa','SiswaController');
-    Route::resource ('tag','TagController');
-    Route::resource ('kategori','KategoriController');
-    Route::resource ('artikel','ArtikelController');
+    Route::resource ('tag','Api\TagController');
+    Route::resource ('kategori','Api\KategoriController');
+    Route::resource ('artikel','Api\ArtikelController');
 });

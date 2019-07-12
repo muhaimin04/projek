@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Kategori;
 use Session;
 
@@ -17,7 +18,12 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::orderBy('created_at','desc')->get();
-        return view('backend.kategori.index', compact('kategori'));
+        $response = [
+            'success' => true,
+            'data' => $kategori,
+            'massage' => 'berhasil'
+        ];
+        return response()->json($response,200);
     }
 
     /**
@@ -45,12 +51,12 @@ class KategoriController extends Controller
         $kategori->nama_kategori = $request->nama_kategori;
         $kategori->slug = str_slug($request->nama_kategori, '-');
         $kategori->save();
-        Session::flash("flash_notification",[
-            "level" => "success",
-            "message" => "Berhasil menyimpan<b>"
-                         . $kategori->nama_kategori."</b>"
-        ]);
-        return redirect()->route('kategori.index');
+        $response = [
+            'success' => true,
+            'data' => $kategori->nama_kategori,
+            'massage' => 'berhasil'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -61,7 +67,13 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        //
+        $kategori = Kategori::findOrFail($id);
+        $response = [
+            'success' => true,
+            'data' => $kategori,
+            'massage' => 'Berhasil'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -92,12 +104,12 @@ class KategoriController extends Controller
         $kategori->nama_kategori = $request->nama_kategori;
         $kategori->slug = str_slug($request->nama_kategori, '-');
         $kategori->save();
-        Session::flash("flash_notification",[
-            "level" => "success",
-            "message" => "Berhasil mengedit<b>"
-                         . $kategori->nama_kategori."</b>"
-        ]);
-        return redirect()->route('kategori.index');
+        $response = [
+            'success' => true,
+            'data' => $kategori->nama_kategori,
+            'massage' => 'berhasil'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -109,12 +121,11 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         $kategori = Kategori::findOrfail($id)->delete();
-        Session::flash("flash_notification",[
-             "level" => "Success",
-             "message" => "Berhasil menghapus<b>"
-                          . $kategori->nama_kategori."</b>"
-         ]);
-        return redirect()->route('kategori.index');
-
+        $response = [
+            'success' => true,
+            'data' => $kategori,
+            'massage' => 'berhasil menghapus'
+        ];
+        return response()->json($response, 200);
     }
 }
