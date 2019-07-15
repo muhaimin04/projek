@@ -1,16 +1,5 @@
-@extends('layouts.app')
-@section('css')
-    <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/select2/select2.min.css')}}">
-@endsection
+@extends('layouts.backend')
 
-@section('js')
-    <script src="{{asset('assets/backend/assets/vendor/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/vendor/select2/select2.min.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/js/components/select2-init.js')}}"></script>
-    <script>
-        CKEDITOR.replace( 'editor1' );
-    </script>
-@endsection
 
 @section('content')
 <section class="page-content container-fluid">
