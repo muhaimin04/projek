@@ -24,25 +24,20 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/', function () {
-    return view('layouts.index');
+//Route Frontend
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', 'FrontendController@index');
+    Route::get('about', 'FrontendController@about');
+    Route::get('blog', 'FrontendController@blog');
+    Route::get('single-blog/{artikel}', 'FrontendController@singleblog');
+    Route::get('blog-tag/{tag}', 'FrontendController@blogtag');
+    Route::get('blog-kategori/{kategori}', 'FrontendController@blogkategori');
+    Route::get('contact', 'FrontendController@contact');
+    Route::get('regular', 'FrontendController@regular');
+    Route::get('kategori', 'FrontendController@kategori');
 });
 
-Route::get('/kategori', function () {
-    return view('layouts.kategori');
-});
 
-Route::get('/regular', function () {
-    return view('layouts.regular');
-});
-
-Route::get('/contact', function () {
-    return view('layouts.contact');
-});
-
-Route::get('/single_blog', function () {
-    return view('layouts.single_blog');
-});
 // Route Backend
 Route::group(['prefix'=>'admin','middleware'=>['auth']],
 function () {

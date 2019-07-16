@@ -1,30 +1,52 @@
-<header class="header_area">	
-  <div class="main_menu">
-      <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <a class="navbar-brand logo_h" href="/"><img src="{{ asset ('assets/frontend/img/logo.png') }}" alt=""></a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                  <ul class="nav navbar-nav menu_nav ml-auto">
-                      <li class="nav-item"><a class="nav-link" href="about">About Us</a></li> 
-                      <li class="nav-item"><a class="nav-link" href="price">Price</a></li>     
-                      <li class="nav-item submenu dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
-                              <li class="nav-item"><a class="nav-link" href="single-blog">Blog Details</a></li>
-                          </ul>
-                      </li> 
-                      <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-  </div>
+<header class="header-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg">
+                    <!-- Logo -->
+                    <a class="navbar-brand" style="color:white" href="/"><b>GAVI</b></a>
+                    <!-- Navbar Toggler -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <!-- Navbar -->
+                    <div class="collapse navbar-collapse" id="worldNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Article</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/">Home</a>
+                                    <a class="dropdown-item" href="kategori">Catagory</a>
+                                    <a class="dropdown-item" href="single_blog">Single Blog</a>
+                                    <a class="dropdown-item" href="regular">Regular Page</a>
+                                    <a class="dropdown-item" href="contact">Contact</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Galery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Review</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact">Contact</a>
+                            </li>
+                        </ul>
+                        <!-- Search Form  -->
+                        <div id="search-wrapper">
+                            <form action="#">
+                                <input type="text" id="search" placeholder="Search something...">
+                                <div id="close-icon"></div>
+                                <input class="d-none" type="submit" value="">
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
 </header>
