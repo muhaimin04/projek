@@ -9,10 +9,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>World - Blog &amp; Magazine Template</title>
+    <title>GAVI - (Game View)</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="{{ asset ('assets/frontend/img/core-img/favicon.ico') }}">
+    <link rel="icon" href="{{ asset ('assets/frontend/img/core-img/tool.png') }}">
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ asset ('assets/frontend/style.css') }}">
