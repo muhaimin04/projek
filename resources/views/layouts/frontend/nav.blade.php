@@ -18,7 +18,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/">Home</a>
                                     <a class="dropdown-item" href="kategori">Catagory</a>
-                                    <a class="dropdown-item" href="single_blog">Single Blog</a>
+                                    <a class="dropdown-item" href="blog">Single Blog</a>
                                     <a class="dropdown-item" href="regular">Regular Page</a>
                                     <a class="dropdown-item" href="contact">Contact</a>
                                 </div>
