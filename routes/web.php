@@ -33,8 +33,9 @@ Route::group(['prefix' => '/'], function () {
     Route::get('blog-tag/{tag}', 'FrontendController@blogtag');
     Route::get('blog-kategori/{kategori}', 'FrontendController@blogkategori');
     Route::get('contact', 'FrontendController@contact');
-    Route::get('regular', 'FrontendController@regular');
     Route::get('kategori', 'FrontendController@kategori');
+    Route::get('review', 'FrontendController@review');
+    Route::get('galeri', 'FrontendController@galeri');
 });
 
 

@@ -4,19 +4,28 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    var alamat = '/api/artikel'
+    var alamat_artikel = '/api/artikel'
 
     // Get Data Siswa
     $.ajax({
-        url: alamat,
+        url: alamat_artikel,
         method: "GET",
         dataType: "json",
         success: function (berhasil) {
             // console.log(berhasil)
             $.each(berhasil.data, function (key, value) {
-                $(".data-artikel").append(
+                $(".isinya").append(
                     `
-                   
+                    <div class="col-lg-3 col-md-6 p-0">
+					<div class="feature-item set-bg" data-setbg="{{ asset ('assets/frontend/img/features/1.jpg')}}">
+						<span class="cata new">new</span>
+						<div class="fi-content text-white">
+							<h5><a href="#">${value.judul}</a></h5>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<a href="#" class="fi-comment">3 Comments</a>
+						</div>
+					</div>
+				</div>
                     `
                 )
             })

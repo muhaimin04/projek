@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Tag;
+use Session;
+
 
 class TagController extends Controller
 {
@@ -14,7 +17,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tag = Tag::all();
+        $tag = Tag::orderBy('created_at','desc')->get();
         $response = [
             'success' => true,
             'data' => $tag,
@@ -30,7 +33,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view ('backend.tag.create');
     }
 
     /**
@@ -43,7 +46,6 @@ class TagController extends Controller
     {
         $request->validate([
             'nama_tag' => 'required|unique:tags'
-    
         ]);
         $tag = new Tag();
         $tag->nama_tag = $request->nama_tag;
@@ -51,7 +53,7 @@ class TagController extends Controller
         $tag->save();
         $response = [
             'success' => true,
-            'data' => $tag,
+            'data' => $tag->nama_tag,
             'massage' => 'berhasil'
         ];
         return response()->json($response, 200);
@@ -65,7 +67,13 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        $response = [
+            'success' => true,
+            'data' => $tag,
+            'massage' => 'Berhasil'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -76,7 +84,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::findOrfail($id);
+        return view('backend.tag.edit',compact('tag'));
     }
 
     /**
@@ -88,7 +97,19 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_tag' => 'required'
+        ]);
+        $tag = Tag::findOrfail($id);
+        $tag->nama_tag = $request->nama_tag;
+        $tag->slug = str_slug($request->nama_tag, '-');
+        $tag->save();
+        $response = [
+            'success' => true,
+            'data' => $tag->nama_tag,
+            'massage' => 'berhasil'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
